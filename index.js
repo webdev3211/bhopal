@@ -4,9 +4,20 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Twit = require('twit');
 var twitterRoute=require('./routes/twitter');
+const multer = require('multer');
  
-
-
+//Multer Setup
+// var storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, 'uploads/')
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, Date.now() + '-' + file.originalname);
+//     }
+// });
+// var upload = multer({
+//     storage: storage
+// })
 // Init App
 var app = express();
 
