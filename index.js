@@ -23,5 +23,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('port', (process.env.PORT || 5000));
 
 app.listen(app.get('port'), function () {
-    console.log('Server started on port ' + app.get('port'));
+    console.log('Server started on the port ' + app.get('port'));
 });
