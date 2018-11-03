@@ -9,6 +9,7 @@ graph.setAccessToken(access_token.at);
 
 router.get('/',(req,res,next)=>{
 
+    res.render('facebook');
     graph.extendAccessToken({
         "access_token":   access_token.at
       , "client_id":      conf.client_id

@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var Twit = require('twit');
 var twitterRoute=require('./routes/twitter');
 var facebookRoute=require('./routes/facebook');
+var developersRoute=require('./routes/developers');
 const multer = require('multer');
 var request = require('request');
 // Init App
@@ -107,8 +108,8 @@ app.get('/instagram', function (req, ress) {
 //Setting Up Routes
 app.use('/twitter',twitterRoute);
 app.use('/facebook',facebookRoute);
-
-
+app.use('/developers',developersRoute);
+app.get('/',function(req,res){res.render('home');});
 
 
 // Set Port
