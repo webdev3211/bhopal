@@ -1,0 +1,25 @@
+{
+  "name": "onestop",
+  "version": "1.0.0",
+  "description": "all in one app where user no needs to go different site in order to know the latest news feeds",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsmrpk/bhopal.git"
+  },
+  "author": "CodingBuddies",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itsmrpk/bhopal/issues"
+  },
+  "homepage": "https://github.com/itsmrpk/bhopal#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "instagram-api": "^1.0.3",
+    "mongoose": "^5.3.9",
+    "twit": "^2.2.11"
+  }
+}
