@@ -1,57 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <!-- <link rel="stylesheet" href="/css/bootstrap.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
-    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+
+  <title>Document</title>
+  <style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      width: 30%;
+      border-radius: 5px;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+
+    }
+
+    .card:hover {
+      box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, 0.2);
+      -webkit-transform: scale(0.905);
+      transform: scale(0.905);
+    }
+
+    .border-primary {
+      border-color: #f1f1f1;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-<a class="navbar-brand" href="/">CodingBuddies</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-    <a class="nav-item nav-link" href="/twitter"><span class="fab fa-twitter-square"></span> Twitter</a>
-    <a class="nav-item nav-link active" href="/oauth"><span class="fab fa-instagram"> </span> Instagram</a>
-    <a class="nav-item nav-link" href="/facebook"><span class="fab fa-facebook-square"></span> Facebook</a>
-    <a class="nav-item nav-link" href="/developers">Developers</a>
-  </div>
-</div>
-</nav>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: #3b5998;">
+      <a class="navbar-brand" style="font-weight: bold; font-family: Satisfy;" href="/">Social Hub</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/">Home
+            <span class="sr-only">(current)</span>
+          </a>
+          <a class="nav-item nav-link" href="/twitter">
+            <span class="fab fa-twitter-square"></span> Twitter</a>
+          <a class="nav-item nav-link active" href="/oauth">
+            <span class="fab fa-instagram"> </span> Instagram</a>
+          <a class="nav-item nav-link" href="/facebook">
+            <span class="fab fa-facebook-square"></span> Facebook</a>
+          <a class="nav-item nav-link" href="/developers">Developers</a>
+        </div>
+      </div>
+    </nav>
     <br>
-    <h1 class="text-center text-danger"> <span class="fab fa-instagram"> </span> Instagram Posts</h1>
+    <h1 class="text-center text-danger">
+      <span class="fab fa-instagram"> </span> Instagram Posts</h1>
     <br>
     <div class="container">
-    <% data.forEach(function(element){ %>
-       <div class="row justify-content-center">
-       <div class="card border-primary mb-3" style="width: 28rem;">
-       <img class="card-img-top img-thumbnail" src= " <%= element.images.low_resolution.url %> " alt="Card image cap">
-       <div class="card-body">
-         <h4 class="card-text"><%= element.caption.text %></h4>
-       </div>
-         </div>
-       </div> <br>
-    <%});%>
+      <% data.forEach(function(element){ %>
+        <div class="row justify-content-center">
+          <div class="card mb-3" style="width: 28rem;">
+            <img class="card-img-top img-thumbnail" src=" <%= element.images.low_resolution.url %> " alt="Card image cap">
+            <div class="card-body" style="border:1px solid #f2f2f2;">
+              <h4 class="card-text">
+                <%= element.caption.text %>
+              </h4>
+            </div>
+          </div>
+        </div>
+        <br>
+        <%});%>
     </div>
 
 
 
-</div>
+  </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -3,9 +3,9 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Twit = require('twit');
-var twitterRoute=require('./routes/twitter');
-var facebookRoute=require('./routes/facebook');
-var developersRoute=require('./routes/developers');
+var twitterRoute = require('./routes/twitter');
+var facebookRoute = require('./routes/facebook');
+var developersRoute = require('./routes/developers');
 const multer = require('multer');
 var request = require('request');
 // Init App
@@ -54,7 +54,7 @@ app.get('/feed', function (req, res) {
             var accessToken = result.access_token;
             app.set('accessTokenn', accessToken);
             // setTimeout(function () {
-                res.redirect('/instagram');
+            res.redirect('/instagram');
             // }, 2000);
 
         }
@@ -77,8 +77,10 @@ app.get('/instagram', function (req, ress) {
     var instadata;
     request(options, (err, res, body) => {
         console.log(body.data);
-        ress.render('instagram',{data:body.data});
-       // ress.json(body.data);
+        ress.render('instagram', {
+            data: body.data
+        });
+        // ress.json(body.data);
     })
 
     //  ig.user_media_recent('access_token.split('.')[0]', function(err, result, pagination, remaining, limit) {
@@ -106,10 +108,12 @@ app.get('/instagram', function (req, ress) {
 
 
 //Setting Up Routes
-app.use('/twitter',twitterRoute);
-app.use('/facebook',facebookRoute);
-app.use('/developers',developersRoute);
-app.get('/',function(req,res){res.render('home');});
+app.use('/twitter', twitterRoute);
+app.use('/facebook', facebookRoute);
+app.use('/developers', developersRoute);
+app.get('/', function (req, res) {
+    res.render('home');
+});
 
 
 // Set Port
