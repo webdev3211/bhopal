@@ -25,12 +25,14 @@ router.get('/', (req, res, next) => {
     }
     T.get('statuses/home_timeline', params, function (err, data, response) {
         console.log(data);
-        // res.json(data); 
+        // res.json(data);
         res.render('tweets', {
             data: data
         });
     });
 });
+
+
 router.post('/', upload.single('avatar'), (req, res, next) => {
     console.log(req.file);
     /*var b64content = */
