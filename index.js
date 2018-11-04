@@ -109,7 +109,7 @@ app.get('/instagram', function (req, ress) {
 
 //Setting Up Routes
 app.use('/twitter', twitterRoute);
-app.use('/facebook', facebookRoute);
+// app.use('/facebook', facebookRoute);
 app.use('/developers', developersRoute);
 app.get('/', function (req, res) {
     res.render('home');

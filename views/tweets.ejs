@@ -40,7 +40,7 @@
 
 <body>
   <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background: #3b5998;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: rebeccapurple;">
       <a class="navbar-brand" style="font-weight: bold; font-family: Satisfy;" href="/">Social Hub</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
@@ -93,16 +93,26 @@
     <div class="container">
       <% data.forEach(function(element){ %>
         <div class="row justify-content-center">
+
           <div class="card mb-3" style="width: 32rem;">
+
             <% if(element.entities.media!==undefined){ %>
               <% element.entities.media.forEach( function(image) { %>
                 <img class="card-img-top img-thumbnail" src=" <%= image.media_url %> " alt="Card image cap">
                 <%}) ;%>
                   <%}%>
+
                     <div class="card-body" style="border:1px solid #f2f2f2;">
-                      <h4 class="card-text">
-                        <%= element.text %>
+                      <h4 class="card-title pull-right">
+                        <span style="color: grey; font-size: 15px; font-family:cursive;">
+                          Tweeted By:
+                          <%= element.user.name %>
+                            <%= element.user.favourites_count %>
+                        </span>
                       </h4>
+                      <h5 class="card-text tweet-text">
+                        <%= element.text %>
+                      </h5>
                     </div>
           </div>
         </div>
@@ -137,5 +147,16 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"></script>
 </body>
+
+<script>
+  for (var i = 0; i <= 25; i++) {
+    var str = document.getElementsByClassName("tweet-text")[`${i}`].innerHTML;
+    var n = str.search("https");
+    if (n !== -1) {
+      var ans = str.substring(0, n);
+      document.getElementsByClassName("tweet-text")[`${i}`].innerHTML = ans;
+    }
+  }
+</script>
 
 </html>
