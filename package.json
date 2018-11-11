@@ -19,8 +19,14 @@
   "dependencies": {
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "fb": "^2.0.0",
+    "fbgraph": "^1.4.4",
     "instagram-api": "^1.0.3",
+    "instagram-node": "^0.5.8",
     "mongoose": "^5.3.9",
+    "multer": "^1.4.1",
+    "node-linkedin": "^0.5.6",
+    "request": "^2.88.0",
     "twit": "^2.2.11"
   }
 }

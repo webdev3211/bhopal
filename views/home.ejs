@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: rebeccapurple;">
+      <a class="navbar-brand" style="font-weight: bold; font-family: Satisfy;" href="/">Social Hub</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="/">Home
+            <span class="sr-only">(current)</span>
+          </a>
+          <a class="nav-item nav-link" href="/twitter">
+            <span class="fab fa-twitter-square"></span> Twitter</a>
+          <a class="nav-item nav-link" href="/oauth">
+            <span class="fab fa-instagram"> </span> Instagram</a>
+          <a class="nav-item nav-link" href="/developers">Developers</a>
+        </div>
+      </div>
+    </nav>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container text-center">
+        <!-- <h1 class="display-4">Welcome to CodingBuddies</h1> -->
+        <h1 claass="display-4" style="font-size: 60px;">Want to Browse
+          <span class="txt-type" data-wait="3000" data-words='["Instagram", "Twitter", "Facebook"]'></span>
+        </h1>
+        <span style="font-family: cursive; color: grey;">all together .. then you are at the right place!!!</span>
+      </div>
+    </div class="container">
+    <div class="row">
+
+      <div class="col">
+
+        <div class="card text-white text-center p-3" style="background: linear-gradient(-160deg, purple, yellow);">
+          <a href="/oauth" style="color:white">
+            <!-- <i class="fab fa-instagram fa-5x"></i> -->
+            <img src="https://image.ibb.co/kd3wA0/images.jpg" height="75px" width="75px" style="border:none; outline:none; border-radius: 15px;">
+
+          </a>
+          <blockquote class="blockquote mb-0">
+            <p>
+              Instagram is a photo and video-sharing social networking service owned by Facebook, Inc. It was created by Kevin Systrom
+              and Mike Krieger
+
+            </p>
+
+
+            <footer class="blockquote-footer">
+              <small>
+                Developed By
+                <cite title="Source Title">Facebook, Kevin Systrom, Mike Krieger</cite>
+              </small>
+            </footer>
+
+
+
+          </blockquote>
+        </div>
+
+      </div>
+      <div class="col">
+
+        <div class="card text-white bg-primary text-center p-3">
+          <a href="/twitter" style="color:white">
+            <i class="fab fa-twitter-square fa-5x"></i>
+          </a>
+          <blockquote class="blockquote mb-0">
+            <p>
+              Twitter is an American online news and social networking service on which users post and interact with messages known as
+              "tweets"
+
+            </p>
+            <footer class="blockquote-footer" style="color: white;">
+              <small>
+                Founders
+                <cite title="Source Title">Jack Dorsey, Noah Glass, Biz Stone, Evan Williams</cite>
+              </small>
+            </footer>
+          </blockquote>
+        </div>
+
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
+<script>
+  class TypeWriter {
+    constructor(txtElement, words, wait = 3000) {
+      this.txtElement = txtElement;
+      this.words = words;
+      this.txt = '';
+      this.wordIndex = 0;
+      this.wait = parseInt(wait, 10);
+      this.type();
+      this.isDeleting = false;
+    }
+
+    type() {
+      // Current index of word
+      const current = this.wordIndex % this.words.length;
+      // Get full text of current word
+      const fullTxt = this.words[current];
+
+      // Check if deleting
+      if (this.isDeleting) {
+        // Remove char
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      } else {
+        // Add char
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
+
+      // Insert txt into element
+      this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+      // Initial Type Speed
+      let typeSpeed = 100;
+
+      if (this.isDeleting) {
+        typeSpeed /= 2;
+      }
+
+      // If word is complete
+      if (!this.isDeleting && this.txt === fullTxt) {
+        // Make pause at end
+        typeSpeed = this.wait;
+        // Set delete to true
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        // Move to next word
+        this.wordIndex++;
+        // Pause before start typing
+        typeSpeed = 500;
+      }
+
+      setTimeout(() => this.type(), typeSpeed);
+    }
+  }
+
+
+  // Init On DOM Load
+  document.addEventListener('DOMContentLoaded', init);
+
+  // Init App
+  function init() {
+    const txtElement = document.querySelector('.txt-type');
+    const words = JSON.parse(txtElement.getAttribute('data-words'));
+    const wait = txtElement.getAttribute('data-wait');
+    // Init TypeWriter
+    new TypeWriter(txtElement, words, wait);
+  }
+</script>
