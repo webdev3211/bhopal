@@ -21,11 +21,11 @@ var upload = multer({
 var T = new Twit(require('../config/config'));
 router.get('/', (req, res, next) => {
     var params = {
-        count: 25
+        count: 50
     }
     T.get('statuses/home_timeline', params, function (err, data, response) {
         console.log(data);
-        // res.json(data);
+        // res.json(data); 
         res.render('tweets', {
             data: data
         });
@@ -36,7 +36,7 @@ router.get('/', (req, res, next) => {
 router.post('/', upload.single('avatar'), (req, res, next) => {
     console.log(req.file);
     /*var b64content = */
-    fs.readFile('I:\\bhopal\\' + req.file.path, {
+    fs.readFile('F:\\xampp\\htdocs\\NodeJS\\A LATEST PROJECT\\Bhhopal\\lastpart\\bhopal\\' + req.file.path, {
         encoding: 'base64'
     }, function (err, b64content) {
         //WARNING

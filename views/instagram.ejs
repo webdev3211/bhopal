@@ -34,55 +34,66 @@
     .border-primary {
       border-color: #f1f1f1;
     }
+
+    #allinstaposts {
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: minmax(110px, auto);
+      grid-column-gap: 45px;
+      grid-row-gap: 45px;
+
+      /* max-width: 20px; */
+    }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background: rebeccapurple;">
-      <a class="navbar-brand" style="font-weight: bold; font-family: Satisfy;" href="/">Social Hub</a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/">Home
-            <span class="sr-only">(current)</span>
-          </a>
-          <a class="nav-item nav-link" href="/twitter">
-            <span class="fab fa-twitter-square"></span> Twitter</a>
-          <a class="nav-item nav-link active" href="/oauth">
-            <span class="fab fa-instagram"> </span> Instagram</a>
-          <a class="nav-item nav-link" href="/developers">Developers</a>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background: rebeccapurple;">
+    <a class="navbar-brand" style="font-weight: bold; font-family: Satisfy;" href="/">Social Hub</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/">Home
+          <span class="sr-only">(current)</span>
+        </a>
+        <a class="nav-item nav-link" href="/twitter">
+          <span class="fab fa-twitter-square"></span> Twitter</a>
+        <a class="nav-item nav-link active" href="/oauth">
+          <span class="fab fa-instagram"> </span> Instagram</a>
+        <a class="nav-item nav-link" href="/developers">Developers</a>
       </div>
-    </nav>
-    <br>
-    <h1 class="text-center text-danger">
-      <span class="fab fa-instagram"> </span> Instagram Posts</h1>
-    <br>
-    <div class="container">
-      <% data.forEach(function(element){ %>
-        <div class="row justify-content-center">
-          <div class="card mb-3" style="width: 28rem;">
-            <img class="card-img-top img-thumbnail" src=" <%= element.images.low_resolution.url %> " alt="Card image cap">
-            <div class="card-body" style="border:1px solid #f2f2f2;">
-              <h4 class="card-text">
-                <%= element.caption.text %>
-              </h4>
-            </div>
+    </div>
+  </nav>
+  <br>
+  <h1 class="text-center text-danger">
+    <span class="fab fa-instagram"> </span> Instagram Posts</h1>
+  <br>
+  <div class="container" id="allinstaposts">
+    <% data.forEach(function(element){ %>
+      <div class="row">
+        <div class="card" style="width: 22rem;">
+          <img class="card-img-top img-thumbnail" src=" <%= element.images.low_resolution.url %> " alt="Card image cap">
+          <div class="card-body" style="border:1px solid #f2f2f2;">
+            <h4 class="card-text">
+              <%= element.caption.text %>
+            </h4>
           </div>
         </div>
-        <br>
-        <%});%>
-    </div>
-
-
-
+      </div>
+      <br>
+      <%});%>
   </div>
+
+
+
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
