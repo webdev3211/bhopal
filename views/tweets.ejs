@@ -16,6 +16,13 @@
   <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
 
   <style>
+    .gotolink {
+      float: right;
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
+
     #alltweets {
       margin: 0 auto;
       display: grid;
@@ -51,100 +58,105 @@
 </head>
 
 <body>
-
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background: rebeccapurple;">
-    <a class="navbar-brand" style="font-weight: bold; font-family: Satisfy;" href="/">Social Hub</a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/">Home
-          <span class="sr-only">(current)</span>
-        </a>
-        <a class="nav-item nav-link" href="/twitter">
-          <span class="fab fa-twitter-square"></span> Twitter</a>
-        <a class="nav-item nav-link active" href="/oauth">
-          <span class="fab fa-instagram"> </span> Instagram</a>
-        <a class="nav-item nav-link" href="/facebook">
-          <span class="fab fa-facebook-square"></span> Facebook</a>
-        <a class="nav-item nav-link" href="/developers">Developers</a>
-      </div>
-    </div>
-  </nav>
-  <!--bboootstrap form-->
-
   <div class="container">
-    <div class="col-md-8 offset-md-2">
-      <form role="form" action="/twitter" method="post" class="form-group" enctype="multipart/form-data">
-        <div class="form-group">
-          <br>
-          <input style="height: 150px;" autocomplete="off" type="text" class="form-control form-control-lg" id="exampleInputEmail1"
-            name="tweet" placeholder="What's on your mind, tweet here......">
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: rebeccapurple;">
+      <a class="navbar-brand" style="font-weight: bold; font-family: Satisfy;" href="/">Social Hub</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link " href="/">Home
+            <span class="sr-only">(current)</span>
+          </a>
+          <a class="nav-item nav-link active" href="/twitter">
+            <span class="fab fa-twitter-square"></span> Twitter</a>
+          <a class="nav-item nav-link" href="/oauth">
+            <span class="fab fa-instagram"> </span> Instagram</a>
+          <a class="nav-item nav-link " href="/developers">Developers</a>
         </div>
-        <div class="form-group" style="border:1px solid #ddd; border-radius:10px;
+      </div>
+    </nav>
+
+    <!--bboootstrap form-->
+
+    <div class="container">
+      <div class="col-md-8 offset-md-2">
+        <form role="form" action="/twitter" method="post" class="form-group" enctype="multipart/form-data">
+          <div class="form-group">
+            <br>
+            <input style="height: 150px;" autocomplete="off" type="text" class="form-control form-control-lg" id="exampleInputEmail1"
+              name="tweet" placeholder="What's on your mind, tweet here......">
+          </div>
+          <div class="form-group" style="border:1px solid #ddd; border-radius:10px;
             background-color:#efefef; margin-bottom:10px; width: 120px;">
-          <label for="exampleInputFile" name="image">File input</label>
-          <img src="https://image.ibb.co/eHmOvU/uploadimage2.png" height="20px" width="20px" style="border-radius:20px;">
-          <input type="file" id="exampleInputFile" name="avatar" style="position:absolute;
+            <label for="exampleInputFile" name="image">File input</label>
+            <img src="https://image.ibb.co/eHmOvU/uploadimage2.png" height="20px" width="20px" style="border-radius:20px;">
+            <input type="file" id="exampleInputFile" name="avatar" style="position:absolute;
             left:0;top:0; opacity:0">
+          </div>
+
+          <button type="submit" class="btn btn-outline-primary btn-block">Submit</button>
+        </form>
+
+      </div>
+
+    </div>
+
+    <!--form end -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="margin-left: 80px;" id="alltweets">
+      <% data.forEach(function(element){ %>
+
+
+        <div class="card" style="width: 20rem;">
+
+          <% if(element.entities.media!==undefined){ %>
+            <% element.entities.media.forEach( function(image) { %>
+              <img class="card-img-top img-thumbnail" src=" <%= image.media_url %> " alt="Card image cap">
+              <%}) ;%>
+                <%}%>
+
+                  <div class="card-body" style="border:1px solid #f2f2f2;">
+                    <h4 class="card-title pull-right">
+                      <span style="color: grey; font-size: 15px; font-family:cursive;">
+                        Tweeted By:
+                        <%= element.user.name %>
+                      </span>
+                    </h4>
+                    <h5 class="card-text tweet-text">
+                      <%= element.text %>
+                    </h5>
+                  </div>
+                  <div class="card-footer text-muted">
+
+                    <span style="color:red; font-size: 25px;">♥</span>
+
+                    <%= element.user.favourites_count %>
+                      <a class="gotolink" target="_blank">
+                        <i class="fa fa-link"></i>
+                      </a>
+
+                  </div>
+
+
         </div>
 
-        <button type="submit" class="btn btn-outline-primary btn-block">Submit</button>
-      </form>
+        <br>
+        <%});%>
+    </div>
+
+    <div style="margin-bottom:280px;">
 
     </div>
 
   </div>
-
-  <!--form end -->
-  <br>
-  <br>
-  <br>
-  <br>
-  <div style="margin-left: 80px;" id="alltweets">
-    <% data.forEach(function(element){ %>
-
-
-      <div class="card" style="width: 20rem;">
-
-        <% if(element.entities.media!==undefined){ %>
-          <% element.entities.media.forEach( function(image) { %>
-            <img class="card-img-top img-thumbnail" src=" <%= image.media_url %> " alt="Card image cap">
-            <%}) ;%>
-              <%}%>
-
-                <div class="card-body" style="border:1px solid #f2f2f2;">
-                  <h4 class="card-title pull-right">
-                    <span style="color: grey; font-size: 15px; font-family:cursive;">
-                      Tweeted By:
-                      <%= element.user.name %>
-                    </span>
-                  </h4>
-                  <h5 class="card-text tweet-text">
-                    <%= element.text %>
-                  </h5>
-                </div>
-                <div class="card-footer text-muted">
-
-                  <span style="color:red; font-size: 25px;">♥</span>
-
-                  <%= element.user.favourites_count %>
-
-                </div>
-
-
-      </div>
-
-      <br>
-      <%});%>
-  </div>
-
-
-
-
   <!-- 
     <% data.forEach(function(element){ %>
      
@@ -178,9 +190,12 @@
     var n = str.search("https");
     if (n !== -1) {
       var ans = str.substring(0, n);
-      var linkk = str.substring(n, str.length - 1);
+      var linkk = str.substring(n, str.length - 1).trim();
       console.log(linkk);
       document.getElementsByClassName("tweet-text")[`${i}`].innerHTML = ans;
+
+      var a = document.getElementsByClassName("gotolink")[`${i}`];
+      a.href = linkk;
     }
   }
 </script>

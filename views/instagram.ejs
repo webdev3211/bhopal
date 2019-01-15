@@ -12,9 +12,14 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
     crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
-
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU'
+    crossorigin='anonymous'>
   <title>Document</title>
   <style>
+    #post-link:hover {
+      cursor: pointer;
+    }
+
     .card {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       transition: 0.3s;
@@ -50,49 +55,57 @@
 
 <body>
 
+  <div class="container">
 
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background: rebeccapurple;">
-    <a class="navbar-brand" style="font-weight: bold; font-family: Satisfy;" href="/">Social Hub</a>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: rebeccapurple;">
+      <a class="navbar-brand" style="font-weight: bold; font-family: Satisfy;" href="/">Social Hub</a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/">Home
-          <span class="sr-only">(current)</span>
-        </a>
-        <a class="nav-item nav-link" href="/twitter">
-          <span class="fab fa-twitter-square"></span> Twitter</a>
-        <a class="nav-item nav-link active" href="/oauth">
-          <span class="fab fa-instagram"> </span> Instagram</a>
-        <a class="nav-item nav-link" href="/developers">Developers</a>
-      </div>
-    </div>
-  </nav>
-  <br>
-  <h1 class="text-center text-danger">
-    <span class="fab fa-instagram"> </span> Instagram Posts</h1>
-  <br>
-  <div class="container" id="allinstaposts">
-    <% data.forEach(function(element){ %>
-      <div class="row">
-        <div class="card" style="width: 22rem;">
-          <img class="card-img-top img-thumbnail" src=" <%= element.images.low_resolution.url %> " alt="Card image cap">
-          <div class="card-body" style="border:1px solid #f2f2f2;">
-            <h4 class="card-text">
-              <%= element.caption.text %>
-            </h4>
-          </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link " href="/">Home
+            <span class="sr-only">(current)</span>
+          </a>
+          <a class="nav-item nav-link" href="/twitter">
+            <span class="fab fa-twitter-square"></span> Twitter</a>
+          <a class="nav-item nav-link" href="/oauth">
+            <span class="fab fa-instagram active"> </span> Instagram</a>
+          <a class="nav-item nav-link " href="/developers">Developers</a>
         </div>
       </div>
-      <br>
-      <%});%>
+    </nav>
+
+    <br>
+    <h1 class="text-center text-danger">
+      <span class="fab fa-instagram"> </span> Instagram Posts</h1>
+    <br>
+    <div class="container" id="allinstaposts">
+      <% data.forEach(function(element){ %>
+        <div class="row">
+          <div class="card" style="width: 22rem;">
+            <img class="card-img-top img-thumbnail" src=" <%= element.images.low_resolution.url %> " alt="Card image cap">
+            <div class="card-body" style="border:1px solid #f2f2f2;">
+              <a style="text-decoration:none;" id="post-link" href="<%= element.link %>">
+                <h4 class="card-text">
+                  <%= element.caption.text %>
+                </h4>
+
+              </a>
+            </div>
+          </div>
+        </div>
+        <br>
+        <%});%>
+    </div>
+
+    <div style="margin-bottom:280px;">
+
+    </div>
+
   </div>
-
-
-
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

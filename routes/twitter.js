@@ -21,7 +21,8 @@ var upload = multer({
 var T = new Twit(require('../config/config'));
 router.get('/', (req, res, next) => {
     var params = {
-        count: 50
+        count: 50,
+        // truncated: false
     }
     T.get('statuses/home_timeline', params, function (err, data, response) {
         console.log(data);
