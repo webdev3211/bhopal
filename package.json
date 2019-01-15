@@ -4,7 +4,8 @@
   "description": "all in one app where user no needs to go different site in order to know the latest news feeds",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
