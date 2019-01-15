@@ -31,7 +31,8 @@ instagram.use({
     client_secret: '6a2387eb67214baea4ee54bdf42a0c2c'
 });
 
-var redirect_uri = 'http://localhost:3000/feed';
+var redirect_uri = 'https://mysocialhub.herokuapp.com/feed';
+// var redirect_uri=  "http://localhost:3000/feed"
 
 app.get('/oauth', function (req, res) {
     res.redirect(instagram.get_authorization_url(redirect_uri, {
