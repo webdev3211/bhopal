@@ -82,27 +82,29 @@
     <h1 class="text-center text-danger">
       <span class="fab fa-instagram"> </span> Instagram Posts</h1>
     <br>
-    <div class="container" id="allinstaposts">
-      <% data.forEach(function(element){ %>
-        <div class="row">
-          <div class="card" style="width: 22rem;">
-            <img class="card-img-top img-thumbnail" src=" <%= element.images.low_resolution.url %> " alt="Card image cap">
-            <div class="card-body" style="border:1px solid #f2f2f2;">
-              <a style="text-decoration:none;" id="post-link" href="<%= element.link %>">
-                <h4 class="card-text">
-                  <%= element.caption.text %>
-                </h4>
+    <div class="container">
 
-              </a>
+      <div class="container" id="allinstaposts">
+        <% data.forEach(function(element){ %>
+          <div class="row">
+            <div class="card" style="width: 20rem;">
+              <img class="card-img-top img-thumbnail" src=" <%= element.images.low_resolution.url %> " alt="Card image cap">
+              <div class="card-body" style="border:1px solid #f2f2f2;">
+                <a style="text-decoration:none;" id="post-link" href="<%= element.link %>" target="_blank">
+                  <h4 class="card-text">
+                    <%= element.caption.text %>
+                  </h4>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <br>
-        <%});%>
-    </div>
+          <br>
+          <%});%>
+      </div>
 
-    <div style="margin-bottom:280px;">
+      <div style="margin-bottom:280px;">
 
+      </div>
     </div>
 
   </div>
